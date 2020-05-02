@@ -9,7 +9,13 @@ const parkingLotArea = new parkingLotSystem();
 describe('Parking lot system tests', () => {
     // Test case for vehicle parking
     it('should verify parking lot system', () => {
-        vehicle = new Object(); // taking vehicle as an object
-        assert.isUndefined(parkingLotArea.parkTheCar.vehicle, "Verify parking lot");
+        car = new Object();
+        assert.isUndefined(parkingLotArea.parkVehicle().vehicle, "Verify parking lot");
     });
+
+    // Test case to return true when car is parked
+    it('should return true when car is parked', () => {
+        car = new Object();
+        assert.isTrue(parkingLotArea.parkVehicle(car));
+    })
 });
