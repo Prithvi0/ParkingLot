@@ -8,14 +8,20 @@ class ParkingLot {
     parkVehicle(vehicle) {
         if (typeof vehicle === 'object') {
             this.ParkingLot.push(vehicle);
-            return true;
+            return true, this;
         }
         if (typeof vehicle === 'undefined' || typeof vehicle === 'number' || typeof vehicle === 'string')
             throw new Error('car is not an object');
     }
+
     // function to unpark the vehicle
     unparkVehicle(vehicle) {
-        return true;
+        if (typeof vehicle === 'object') {
+            this.ParkingLot.pop(vehicle);
+            return true, this;
+        }
+        if (typeof vehicle === 'undefined' || typeof vehicle === 'number' || typeof vehicle === 'string')
+            throw new Error('car is not an object');
     }
 }
 
