@@ -16,7 +16,8 @@ class ParkingLot {
 
     // function to unpark the vehicle
     unparkVehicle(vehicle) {
-        if (typeof vehicle === 'object') {
+        // if (typeof vehicle === 'object' && this.ParkingLot.includes(vehicle)) {
+            if (this.ParkingLot.includes(vehicle)) {
             this.ParkingLot.pop(vehicle);
             return true, this;
         }
