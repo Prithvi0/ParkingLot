@@ -3,13 +3,16 @@ class ParkingLot {
     constructor() {
         this.ParkingLot = new Array();
     }
-    // initialising function to park the vehicle
+
+    // function to park the vehicle
     parkVehicle(car) {
-        this.ParkingLot.push(car);
-        return true;
+        if (typeof car === 'object') {
+            this.ParkingLot.push(car);
+            return true;
+        }
+        if (typeof car === 'undefined' || typeof car === 'number' || typeof car === 'string')
+            throw new Error('car is not an object');
     }
-    // function to unpark the vehicle
-     unparkVehicle(car) { }
 }
 
 module.exports = ParkingLot;
