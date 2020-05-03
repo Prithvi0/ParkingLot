@@ -9,8 +9,10 @@ beforeEach(() => {
 describe('Parking lot system tests:', () => { 
     // U.C 1: Make sure driver is able to park their car to catch flight
     describe('\n\tTests for Parking vehicles:', () => {
+        
         // T.C 1.1: Test case for vehicle parking
         it('should verify parking lot system', () => {
+            car = new Object();
             assert.isDefined(parkingLotArea, "Verify parking lot");
         });
 
@@ -27,16 +29,6 @@ describe('Parking lot system tests:', () => {
             } catch (error) {
                 assert.throws(parkingLotArea.parkVehicle(car), 'car is not an object');
             }
-        });
-    });
-
-    // U.C 2: Make sure driver is able to unpark their car to return home
-    describe('\n\tTests for Unparking vehicles:', () => {
-
-        // T.C 2.1: Test case for vehicle unparking verification
-        it('should verify unparking vehicle function', () => {
-            let car = new Object();
-            assert.isDefined(parkingLotArea.unparkVehicle(car));
         });
     });
 });
