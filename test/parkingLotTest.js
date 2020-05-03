@@ -31,4 +31,14 @@ describe('Parking lot system tests:', () => {
             }
         });
     });
+
+    // U.C 2: Make sure driver is able to unpark their car to return home
+    describe('\n\tTests for Unparking vehicles:', () => {
+
+        // T.C 2.1: Test case for vehicle unparking verification
+        it('should verify unparking vehicle function', () => {
+            let car = new Object();
+            assert.isDefined(parkingLotArea.unparkVehicle(car));
+        });
+    });
 });

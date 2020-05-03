@@ -13,6 +13,10 @@ class ParkingLot {
         if (typeof vehicle === 'undefined' || typeof vehicle === 'number' || typeof vehicle === 'string')
             throw new Error('car is not an object');
     }
+    // function to unpark the vehicle
+    unparkVehicle(vehicle) {
+        return true;
+    }
 }
 
 module.exports = ParkingLot;
