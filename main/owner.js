@@ -5,8 +5,7 @@ class ParkingOwner {
         parkingLotSystem.length === 1;
     }
     parkingFull() {
-        if (parkingLotSystem.length)
-            return true;
+        return parkingLotSystem.length;
     }
 }
 

@@ -83,5 +83,12 @@ describe('Parking lot system tests:', () => {
                 assert.throws(error.message, 'parking lot is full');
             }
         });
+
+        // T.C 3.2: Test case to verify parking lot is full to owner
+        it('should return true when parking lot is full to owner', () => {
+            let car1 = new Object();
+            ownerVerify = parkingLotArea.parkVehicle(car1);
+            assert.isTrue(true, ownerVerify, parkingOwner.parkingFull());
+        });
     });
 });
