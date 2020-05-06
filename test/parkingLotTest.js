@@ -2,15 +2,18 @@ const assert = require('chai').assert;
 const parkingLotSystem = require('../main/parkingLot');
 const parkingOwner = require('../main/owner')
 const sinon = require('sinon');
+const airportPersonal = require('../main/airportSecurityStaff');
 
 // Using beforeEach and afterEach hooks to init before every tests
-beforeEach(function(){
+beforeEach(() => {
     parkingLotArea = new parkingLotSystem;
     sinon.stub(parkingOwner,'parkingFull');
+    sinon.stub(airportPersonal,'parkingFull');
 })
 
-afterEach(function(){
+afterEach(() => {
     parkingOwner.parkingFull.restore();
+    airportPersonal.parkingFull.restore();
 })
     
 describe('Parking lot system tests:', () => {
@@ -85,10 +88,21 @@ describe('Parking lot system tests:', () => {
         });
 
         // T.C 3.2: Test case to verify parking lot is full to owner
-        it('should return true when parking lot is full to owner', () => {
+        it('should return true when parking lot is full and inform to parking lot owner', () => {
             let car1 = new Object();
             ownerVerify = parkingLotArea.parkVehicle(car1);
             assert.isTrue(true, ownerVerify, parkingOwner.parkingFull());
+        });
+    });
+
+    // U.C 4: Ensure parking lot is full at airport
+    describe('\n\tTests for parking lot full at airport:', () => {
+
+        // T.C 4.1: Test case to inform parking lot is full to airport security staff
+        it('should return true when parking lot is full and inform to airport security staff', () => {
+            let car1 = new Object();
+            airportSecurityStaff = parkingLotArea.parkVehicle(car1);
+            assert.isTrue(true, airportSecurityStaff, airportPersonal.parkingFull());
         });
     });
 });
