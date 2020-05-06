@@ -105,4 +105,15 @@ describe('Parking lot system tests:', () => {
             assert.isTrue(true, airportSecurityStaff, airportPersonal.parkingFull());
         });
     });
+
+    // U.C 5: Ensure parking lot space is available
+    describe('\n\tTests for parking lot space is available:', () => {
+
+        // T.C 5.1: Test case to inform parking lot space is available
+        it('should return true when parking lot space is available', () => {
+            let car1 = new Object();
+            parkingAvail = parkingLotArea.parkVehicle(car1).unparkVehicle(car1);
+            assert.isTrue(true, parkingAvail, parkingOwner.parkingAvailable());
+        });
+    });
 });
