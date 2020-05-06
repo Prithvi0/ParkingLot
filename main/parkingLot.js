@@ -1,3 +1,5 @@
+const parkingOwner = require("../main/owner")
+
 // class instantiation
 class ParkingLot {
     constructor() {
@@ -6,24 +8,26 @@ class ParkingLot {
 
     // function to park the vehicle
     parkVehicle(vehicle) {
-        if (typeof vehicle === 'object') {
-            this.ParkingLot.push(vehicle);
-            return true, this;
+        if (typeof vehicle === 'object' && !(this.ParkingFull)) {
+        this.ParkingLot.push(vehicle);
+        return true, this;
         }
+
         if (typeof vehicle === 'undefined' || typeof vehicle === 'number' || typeof vehicle === 'string')
             throw new Error('car is not an object');
-    }
+        return parkingOwner.parkingFull();
+        }
 
     // function to unpark the vehicle
     unparkVehicle(vehicle) {
-        // if (typeof vehicle === 'object' && this.ParkingLot.includes(vehicle)) {
-            if (this.ParkingLot.includes(vehicle)) {
+        if (typeof vehicle === 'object' && this.ParkingLot.includes(vehicle)) {
             this.ParkingLot.pop(vehicle);
             return true, this;
         }
+
         if (typeof vehicle === 'undefined' || typeof vehicle === 'number' || typeof vehicle === 'string')
             throw new Error('car is not an object');
+        }
     }
-}
 
 module.exports = ParkingLot;

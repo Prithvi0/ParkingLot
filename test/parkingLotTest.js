@@ -1,13 +1,20 @@
 const assert = require('chai').assert;
-const expect = require('chai').expect;
 const parkingLotSystem = require('../main/parkingLot');
+const parkingOwner = require('../main/owner')
+const sinon = require('sinon');
 
-// Using beforeEach hook to init before every tests
-beforeEach(() => {
-    parkingLotArea = new parkingLotSystem();
+// Using beforeEach and afterEach hooks to init before every tests
+beforeEach(function(){
+    parkingLotArea = new parkingLotSystem;
+    sinon.stub(parkingOwner,'parkingFull');
 })
 
+afterEach(function(){
+    parkingOwner.parkingFull.restore();
+})
+    
 describe('Parking lot system tests:', () => {
+
     // U.C 1: Make sure driver is able to park their car to catch flight
     describe('\n\tTests for Parking vehicles:', () => {
         
@@ -58,6 +65,22 @@ describe('Parking lot system tests:', () => {
             }
             catch (error) {
                 assert.throws(error.message, 'cannot unpark the existed unpark spot');
+            }
+        });
+    });
+
+    // U.C 3: Ensure parking lot is full
+    describe('\n\tTests for parking lot full:', () => {
+
+        // T.C 3.1: Test case to verify parking lot is full
+        it('should return true when parking lot is full', () => {
+            try {
+                let car1 = new Object();
+                let car2 = new Object();
+                assert.isTrue(true, parkingLotArea.parkVehicle(car1).parkVehicle(car2));
+            }
+            catch (error) {
+                assert.throws(error.message, 'parking lot is full');
             }
         });
     });
