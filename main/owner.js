@@ -7,6 +7,11 @@ class ParkingOwner {
     parkingFull() {
         return parkingLotSystem.length;
     }
+    parkingAvailable() {
+        if (parkingLotSystem.length === 1)
+            return this.parkingFull();
+        return parkingLotSystem.length - 1;
+    }
 }
 
 module.exports = new ParkingOwner();

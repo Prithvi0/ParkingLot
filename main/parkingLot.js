@@ -24,6 +24,7 @@ class ParkingLot {
     unparkVehicle(vehicle) {
         if (typeof vehicle === 'object' && this.ParkingLot.includes(vehicle)) {
             this.ParkingLot.pop(vehicle);
+            parkingOwner.parkingAvailable();
             return true, this;
         }
 
