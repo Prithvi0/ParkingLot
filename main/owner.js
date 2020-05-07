@@ -12,6 +12,16 @@ class ParkingOwner {
             return this.parkingFull();
         return parkingLotSystem.length - 1;
     }
+    availableParkingSlot() {
+        let slots = new Array();
+        if (this.parkingAvailable()) {
+            for (let slot = 0; slot <= parkingLotSystem.length; slot++) {
+                if (parkingLotSystem[slot])
+                    slots.push(slot + 1);            
+            }
+            return slots;
+        }
+    }
 }
 
 module.exports = new ParkingOwner();

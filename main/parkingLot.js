@@ -1,5 +1,5 @@
-const parkingOwner = require("../main/owner")
-
+const parkingOwner = require("../main/owner");
+const airportPersonal = require("../main/airportSecurityStaff");
 // class instantiation
 class ParkingLot {
     constructor() {
@@ -18,6 +18,7 @@ class ParkingLot {
         
         if (this.ParkingLot.length > 1)
             parkingOwner.parkingFull();
+            airportPersonal.parkingFull();
         }
 
     // function to unpark the vehicle
