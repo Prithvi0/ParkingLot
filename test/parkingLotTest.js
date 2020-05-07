@@ -96,7 +96,7 @@ describe('Parking lot system tests:', () => {
     });
 
     // U.C 4: Ensure parking lot is full at airport
-    describe('\n\tTests for parking lot full at airport:', () => {
+    describe('\n\tTest for parking lot full at airport:', () => {
 
         // T.C 4.1: Test case to inform parking lot is full to airport security staff
         it('should return true when parking lot is full and inform to airport security staff', () => {
@@ -107,13 +107,24 @@ describe('Parking lot system tests:', () => {
     });
 
     // U.C 5: Ensure parking lot space is available
-    describe('\n\tTests for parking lot space is available:', () => {
+    describe('\n\tTest for parking lot space is available:', () => {
 
         // T.C 5.1: Test case to inform parking lot space is available
         it('should return true when parking lot space is available', () => {
             let car1 = new Object();
             parkingAvail = parkingLotArea.parkVehicle(car1).unparkVehicle(car1);
             assert.isTrue(true, parkingAvail, parkingOwner.parkingAvailable());
+        });
+    });
+
+    // U.C 6: Park car as per parking lot availablity 
+    describe('\n\tTest to park car when parking lot is available', () => {
+  
+        // T.C 6.1: Test case to park car when parking lot is available
+        it('should return true when parking lot is available to park car', () => {
+        let car1 = new Object();
+        availParkingSlot = parkingLotArea.parkVehicle(car1).unparkVehicle(car1);
+        assert.isTrue(true, availParkingSlot, parkingOwner.availableParkingSlot());
         });
     });
 });
