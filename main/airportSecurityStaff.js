@@ -1,12 +1,11 @@
-const parkingLotSystem = require('../main/parkingLot');
-
 class AirportSecurityPersonal {
+
     constructor() {
-        parkingLotSystem.length === 1;
+        this.parkedFull = false;
     }
+
     parkingFull() {
-        return parkingLotSystem.length;
+        return this.parkedFull = true;
     }
 }
-
-module.exports = new AirportSecurityPersonal();
+module.exports = new AirportSecurityPersonal;
