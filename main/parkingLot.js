@@ -17,6 +17,7 @@ class ParkingLot {
         else {
             if (typeof vehicle === 'object' && vehicle != null) {
                 this.parkingLot.push(vehicle);
+                this.getParkingTime();
                 return true;
             }
             throw new Error('car is not an object');
@@ -24,7 +25,7 @@ class ParkingLot {
         throw new Error('Parking Lot Full')
     }
 
-    // function to check if parking is full
+    // function to check if parking is full()
     isFull() {
         if (this.parkingLot.length >= 2) {
             return true;
@@ -61,6 +62,13 @@ class ParkingLot {
             return driverCar;
         }
         return false;
+    }
+
+    // function to get vehicle parking time
+    getParkingTime() {
+        let day = new Date();
+        let time = day.getTime();
+        return time;
     }
 }
 
