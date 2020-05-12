@@ -67,7 +67,7 @@ describe('Tests for Parking Lot System:', () => {
         // T.C 3.1: Test case to verify parking lot is full
         it('given parking lot when full then inform owner should return true', () => {
             sinon.stub(parkingLotArea, "isFull").onFirstCall().returns(false)
-                                                .onSecondCall().returns(true);
+                .onSecondCall().returns(true);
             let car1 = {};
             assert.isTrue(parkingLotArea.parkVehicle(car1));
             assert.isTrue(parkingLotArea.isFull());
@@ -143,6 +143,17 @@ describe('Tests for Parking Lot System:', () => {
             assert.isTrue(parkingLotArea.parkVehicle(car2));
             let driverCar = parkingLotArea.findVehicle(car2);
             assert.equal(1, driverCar);
+        });
+    });
+
+    // U.C 8: Let the parking owner know when car was parked
+    describe('\n\tTest to ensure driver finds their car to go home', () => {
+
+        it('given parking lot when car parked should inform owner', () => {
+            let car = {};
+            assert.isTrue(parkingLotArea.parkVehicle(car));
+            let vehicleParkTime = parkingLotArea.getParkingTime();
+            assert.equal(vehicleParkTime, new Date().getTime());
         });
     });
 });
